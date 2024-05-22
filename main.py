@@ -49,5 +49,10 @@ def takeCommand():
             return None
     return query
 
-text = takeCommand()
-speak(text)
+
+
+if __name__ == "__main__":
+    print("Welcome to the Speech Recognition Program")
+    print("-----------------------------------------")
+    text = takeCommand()
+    speak(text)
