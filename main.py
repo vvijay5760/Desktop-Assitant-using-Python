@@ -4,6 +4,7 @@ import datetime
 import wikipedia
 import webbrowser
 import os
+import streamlit as st
 
 # Taking Voice from my system
 
@@ -52,14 +53,18 @@ def takeCommand():
 
 
 if __name__ == "__main__":
-    print("Welcome to the Speech Recognition Program")
-    print("-----------------------------------------")
-    query = takeCommand().lower()
-    #print(query)
-    #speak(query)
+    
+    st.title("Welcome to Speech Recognition Program")
 
-    if "wikipedia" in query:
-        query = query.replace("wikipedia","")
-        t = wikipedia.summary(query,sentences = 2)
-        speak("According to Wikipedia")
-        print(t)
+    if st.button("Ask me anything!"):
+        with st.spinner("Listening"):
+            query = takeCommand().lower()
+            speak(query)
+            
+            
+
+    # if "wikipedia" in query:
+    #     query = query.replace("wikipedia","")
+    #     t = wikipedia.summary(query,sentences = 2)
+    #     speak("According to Wikipedia")
+    #     print(t)
