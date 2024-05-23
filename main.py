@@ -54,5 +54,12 @@ def takeCommand():
 if __name__ == "__main__":
     print("Welcome to the Speech Recognition Program")
     print("-----------------------------------------")
-    text = takeCommand()
-    speak(text)
+    query = takeCommand().lower()
+    #print(query)
+    #speak(query)
+
+    if "wikipedia" in query:
+        query = query.replace("wikipedia","")
+        t = wikipedia.summary(query,sentences = 2)
+        speak("According to Wikipedia")
+        print(t)
